@@ -23,13 +23,13 @@ import (
 var (
 	endpoint  = kingpin.Flag("endpoint", "s3 endpoint").Required().String()
 	accesskey = kingpin.Flag("accesskey", "s3 accesskey").Required().String()
-	secretkey = kingpin.Flag("secret", "s3 secret").Required().String()
+	secretkey = kingpin.Flag("secret", "s3 secret").OverrideDefaultFromEnvar("S3_SECRET").Required().String()
 	useSSL    = kingpin.Flag("useSSL", "s3 ssl").Bool()
 	bucket    = kingpin.Flag("bucket", "s3 bucket").Required().String()
 	object    = kingpin.Flag("object", "s3 object/filename").Required().String()
 
 	seafileserver    = kingpin.Flag("seafileserver", "url to seafile server").Required().String()
-	seafiletoken     = kingpin.Flag("seafiletoken", "token see https://download.seafile.com/published/web-api/home.md").Required().String()
+	seafiletoken     = kingpin.Flag("seafiletoken", "token see https://download.seafile.com/published/web-api/home.md").OverrideDefaultFromEnvar("SEAFILE_TOKEN").Required().String()
 	seafilelibraryid = kingpin.Flag("seafilelibraryid", "e.g. 3e040126-4533-4d0c-97f3-baa284915515").Required().String()
 )
 

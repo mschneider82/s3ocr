@@ -100,7 +100,7 @@ func main() {
 	}
 
 	cmd := exec.Command("ocrmypdf",
-		"--deskew", "--tesseract-timeout",
+		"--deskew", "--rotate-pages", "--tesseract-timeout",
 		"2400", "--skip-big", "50", "-l", "deu",
 		inputfilename, outputfilename)
 	var out bytes.Buffer
